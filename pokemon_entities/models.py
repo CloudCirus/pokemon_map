@@ -1,4 +1,5 @@
-from django.db import models 
+from django.db import models
+from django.db.models.deletion import CASCADE 
 
 
 class Pokemon(models.Model):
@@ -10,5 +11,6 @@ class Pokemon(models.Model):
 
 
 class PokemonEntity(models.Model):
+    pokemon = models.ForeignKey(Pokemon, on_delete=CASCADE, null=True)
     lat = models.FloatField()
     lon = models.FloatField()
