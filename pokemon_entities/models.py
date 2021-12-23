@@ -14,3 +14,8 @@ class PokemonEntity(models.Model):
     pokemon = models.ForeignKey(Pokemon, on_delete=CASCADE, null=True)
     lat = models.FloatField()
     lon = models.FloatField()
+    appeared_at = models.DateTimeField(default=None)
+    disappeared_at = models.DateTimeField(default=None)
+
+    def __str__(self) -> str:
+        return f'{self.pokemon} {self.lat}/{self.lon}'
